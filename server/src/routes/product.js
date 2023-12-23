@@ -50,11 +50,38 @@ router.post(
 );
 router.delete("/admin/:pid", [verifyToken, isAdmin], controllers.deleteProduct);
 
-router.post("/admin/imports-many", [verifyToken, isAdmin], controllers.importManyProducts);
-router.get("/admin/imports-detail/:id", [verifyToken, isAdmin], controllers.getImportProductDetails);
-router.post("/admin/exports-many", [verifyToken, isAdmin], controllers.exportManyProducts);
-router.get("/admin/exports-detail/:id", [verifyToken, isAdmin], controllers.getExportProductDetails);
-router.get("/admin/imports-card-detail/:id", [verifyToken, isAdmin], controllers.getImportProductsCard);
-router.get("/admin/exports-card-detail/:id", [verifyToken, isAdmin], controllers.getExportProductsCard);
+router.post(
+  "/admin/imports-many",
+  [verifyToken, isAdmin],
+  controllers.importManyProducts
+);
+
+router.post(
+  "/admin/exports-many",
+  [verifyToken, isAdmin],
+  controllers.exportManyProducts
+);
+
+router.get(
+  "/admin/imports-detail/:id",
+  [verifyToken, isAdmin],
+  controllers.getImportProductDetails
+);
+router.get(
+  "/admin/exports-detail/:id",
+  [verifyToken, isAdmin],
+  controllers.getExportProductDetails
+);
+
+router.get(
+  "/admin/imports-card-detail/:id",
+  [verifyToken, isAdmin],
+  controllers.getImportProductsCard
+);
+router.get(
+  "/admin/exports-card-detail/:id",
+  [verifyToken, isAdmin],
+  controllers.getExportProductsCard
+);
 
 export default router;

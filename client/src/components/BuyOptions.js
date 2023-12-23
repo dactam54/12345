@@ -15,6 +15,7 @@ const BuyOptions = ({ variants, discountNumber, setSku, sku, quantity, pid }) =>
     const { cart } = useSelector(state => state.user)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    
     useEffect(() => {
         variants && setActiveVariant(variants[0])
     }, [variants])

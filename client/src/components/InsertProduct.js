@@ -37,6 +37,7 @@ const [detailOne, setDetailOne] = useState({
 })
 
   const handleUpdateProduct = async () => {
+    // tăng số lượng 1 sản phẩm
     if(isImport){
       const data = {
         quantity :Number(payload.quantity) + Number(payload.plus),
@@ -52,6 +53,7 @@ const [detailOne, setDetailOne] = useState({
         setIsEdit(false);
       }
     }
+
     else if (setIsEdit) {
       const response = await apiUpdateProduct(product.id, {
         ...payload,

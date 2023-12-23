@@ -4,9 +4,6 @@ import moment from 'moment'
 import { Link } from 'react-router-dom'
 import { formatVietnameseToString } from '../../utils/fn'
 import { toast } from 'react-toastify'
-import Xlsx from '../../utils/Xlsx'
-
-
 
 const ManageBill = () => {
     const [billdata, setBilldata] = useState(null)
@@ -15,20 +12,13 @@ const ManageBill = () => {
     const [status, setStatus] = useState('')
     const [searchKeyword, setSearchKeyword] = useState('')
     
-    let handleExport = async () =>{
-        let response1 = await apiGetBills({
-        type :'SUBJECT',
-        limit :'',
-        offset:'',
-        keyword:''
-    })
-    if(response1 && response1.err === 0){
-        await Xlsx.exportExcel(response1.rs.rows,'Xuất hàng','bill_xuat_hang')
-    }}
+  
     
     const fetchData = async () => {
         const response = await apiGetBills()
+        
         if (response.err === 0) setBilldata(response.rs.rows)
+        console.log("billdata",response)
     }
     useEffect(() => {
         !isChangeStatus && fetchData()
@@ -49,11 +39,10 @@ const ManageBill = () => {
         <div className='w-full h-full relative'>
           <button
                 type='button'
-                className='py-2 px-4 bg-green-600 rounded-md text-white font-semibold flex items-center justify-center gap-2'
-                 onClick={() => handleExport()}>
-                
-                <span>Xuất file </span>
+                className='py-2 px-4 bg-green-600 rounded-md text-white font-semibold flex items-center justify-center gap-2'>
+                                <span>Xuất file </span>
             </button>
+
             <div className='flex items-center justify-between border-b border-gray-800'>
                 <h3 className='font-bold text-[30px] pb-4 '>Quản lý hóa đơn</h3>
                 

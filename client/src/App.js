@@ -13,6 +13,7 @@ import { ToastContainer } from 'react-toastify'
 
 
 
+
 function App() {
 
   const dispatch = useDispatch()
@@ -49,6 +50,7 @@ function App() {
         {/* Private routes */}
         <Route path={path.SYSTEM} element={<System />}>
         <Route path={path.STATISTICS} element={<Statistics />} />
+        <Route path={path.PRODUCT_CARD_PAGE} element={<ProductCardPage />} />
           <Route path={path.MANAGE_BRAND} element={<ManageBrand />} />
           <Route path={path.MANAGE_EXPORT} element={<ManageExport />} />
           <Route path={path.BUY} element={<Order />} />
